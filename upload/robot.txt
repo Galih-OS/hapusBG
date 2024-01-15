@@ -1,3 +1,5 @@
 1.Hapus Latar Belakang Gambar</u>, mendukung Jenis File : jpg, png, jpeg, tif, tiff, jfif, arw | File Maksimal 5 Mb
 
 2. Ubah Warna Latar Belakang Gambar Sesuai Keinginan</u>, mendukung Jenis File : jpg, png, jpeg, tif, tiff, jfif, arw | File Maksimal 5 Mb
+
+3. Jika Terjadi Error, kemungkinan file yang anda upload tidak sesuai atau APi key yang saya tempelkan sudah kadaluarsa.
