@@ -1,15 +1,15 @@
 <?php
 require_once 'vendor/autoload.php';
 
-$api_key = 't1LghFrFpi9ZW4ahNWkxzRrd';
+$api_key = 'sPegLYjfihKMMzDUihigkqBB';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     // Configure upload directory and allowed file types
     $upload_dir = 'upload' . DIRECTORY_SEPARATOR;
-    $allowed_types = array('jpg', 'png', 'jpeg', 'tif', 'tiff', 'jfif');
+    $allowed_types = array('jpg', 'png', 'jpeg', 'tif', 'tiff', 'jfif', 'arw');
 
     // Define maxsize for files i.e 2MB
-    $maxsize = 2 * 1024 * 1024;
+    $maxsize = 5 * 1024 * 1024;
 
     $totalsize = 0;
     $i = 0;

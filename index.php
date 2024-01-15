@@ -6,7 +6,9 @@
 
 		<title>gos remover</title>
 	
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="shortcut icon" href="images/bookmark.png">
 	</head>
 
@@ -33,19 +35,21 @@
 				</div>
 						
 		</nav> <!--Header Logo-->
-	
-		<div class="container-md"><b>Hapus Latar Belakang Gambar, mendukung Jenis File : jpg, png, jpeg, tif, tiff, jfif<b></div><br>
+		<br/>
+		<div class="container"><b><u class="text-danger">Hapus Latar Belakang Gambar</u>, mendukung Jenis File : jpg, png, jpeg, tif, tiff, jfif, arw | File Maksimal 5 Mb
+			</b>
+		</div>
 
 		<!-- container -->
 		<div class="container">
 		
 				<!-- row -->
 				<div class="row">
-					<div class="col-md-4 col-xs-6">
+					<div class="col-md-6 col-xs-6">
 						<br>
-						<form method="post" name="image_upload_form" id="image_upload_form" 	enctype="multipart/form-data">
-							<input type="file" name="files[]" id="image_upload" multiple>
-							<input type="submit"id="uploadFile" name="submit" value="Upload">
+						<form method="post" name="image_upload_form" id="image_upload_form" enctype="multipart/form-data">
+							<input class="btn btn-outline-danger" style="font-size:11.5px" type="file" name="files[]" id="image_upload">
+							<input class="btn btn-success" style="font-size:11.5px" type="submit"id="uploadFile" name="submit" value="Upload">
 						</form>
 					</div>
 				</div> <!-- /upload foto -->
@@ -54,7 +58,7 @@
 
 			require_once 'vendor/autoload.php';
 			$upload_dir = 'upload/';
-			$api_key = 't1LghFrFpi9ZW4ahNWkxzRrd';
+			$api_key = 'sPegLYjfihKMMzDUihigkqBB';
 
 
 
@@ -63,11 +67,11 @@
 
 			// Configure upload directory and allowed file types
 			$upload_dir = 'upload'.DIRECTORY_SEPARATOR;
-			$allowed_types = array('jpg', 'png', 'jpeg','tif','tiff','jfif');
+			$allowed_types = array('jpg', 'png', 'jpeg','tif','tiff','jfif', 'arw');
 
 
 			// Define maxsize for files i.e 2MB
-			$maxsize = 2 * 1024 * 1024;
+			$maxsize = 5 * 1024 * 1024;
 
 			$totalsize = 0;
 			$i=0;
@@ -151,8 +155,12 @@
 			fwrite($fp, $res->getBody());
 			fclose($fp);
 
-			echo "<div class='row'><div class='col-md-4 col-xs-6'> <img src='{$upload_dir}{$path_info['filename']}-no-bg.png' style='padding-top:5%'> <br>{$path_info['filename']} 
-			</div></div>";
+			echo 	"<br/><hr/><div class='row'>
+						<div class='col-md-4 col-xs-6'>
+							<a href='{$upload_dir}{$path_info['filename']}-no-bg.png' class='btn btn-success' download>Download</a>
+							<img src='{$upload_dir}{$path_info['filename']}-no-bg.png' style='padding-top:5%'>
+						</div>
+					</div>";
 
 
 			// End IBR
@@ -162,7 +170,7 @@
 
 			// If file extension not valid
 			echo "Error uploading {$file_name} ";
-			echo "({$file_ext} file type is not allowed)<br / >";
+			echo "({$file_ext} file type is not allowed)<br/>";
 			}
 			}
 
@@ -181,9 +189,6 @@
 			if($est_time_min > 60)
 			$est_time_hr =round ($est_time_min / 60,2);
 
-
-
-			echo"Estimated Time : {$est_time_hr} : {$est_time_min} :{$est_time_sec}";
 			}
 			else {
 
@@ -195,14 +200,38 @@
 
 			?>
 		
+		<br/>
+		<hr/>
+		<footer class="bg-white text-center">
 		
+			<!-- Grid container -->
+			<div class="container col-md-12">
+			
+				<!-- Section: Social media -->
+				<section class="col-md-12"> <h4 text-center>Terhubung :</h>
+				<a href="https://github.com/Galih-OS" target="_blank"><i class="bi bi-github" style="font-size:25px"></i></a> | 
+				<a href="https://t.me/galihos" target="_blank"><i class="fa fa-telegram" style="font-size:25px"></i></a> | 
+				<a href="https://www.linkedin.com/in/galih-okta-siwi-8a356910a/" target="_blank"><i class="fa fa-linkedin" style="font-size:25px"></i></a> | 
+				<a href="https://www.instagram.com/galihoktas/" target="_blank"><i class="fa fa-instagram" style="font-size:25px"></i></a> | 
+				<a href="https://www.youtube.com/channel/UCy5QyqbTWXQJEtA72iHwZ2Q?sub_confirmation=1" target="_blank"><i class="fa fa-youtube" style="font-size:25px"></i></a>
+
+
+				</section>
+				<!-- Section: Social media -->
+			</div>
+			<!-- Grid container -->
+		</footer>
+		
+		<hr/>
 		</div>
 		<!-- container -->
 
-
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+		<!--Bundle-->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		
+		<!--Separate-->
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 		
 		<script>
 			$('#image_upload').on('change', function() {
